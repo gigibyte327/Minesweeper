@@ -18,7 +18,7 @@ void setup() {
 }
 
 public void setBombs() {
-    int nBombs = 20;
+    int nBombs = 40;
     for (int i = 0; i < nBombs; i++) {
         int row = (int)(Math.random() * NUM_ROWS);
         int col = (int)(Math.random() * NUM_COLS);
