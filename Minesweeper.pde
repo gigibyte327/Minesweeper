@@ -31,7 +31,6 @@ public void setBombs() {
 public void draw() {
     background(0);
     if (isWon()) {
-        gameOver = true;
         displayWinningMessage();
     }
 
@@ -43,10 +42,11 @@ public boolean isWon() {
         for (int c = 0; c < NUM_COLS; c++) {
             if (buttons[r][c].isClicked())
                 countClicked++;
-            if (bombs.contains(buttons[r][c]))
+            else if (bombs.contains(buttons[r][c]))
                 countBomb++;
-            if (NUM_ROWS * NUM_COLS == countClicked + countBomb)
+            if (NUM_ROWS * NUM_COLS == countClicked + countBomb){
                 return true;
+            }
         }
     }
     return false;
@@ -70,7 +70,7 @@ public void displayLosingMessage() {
     buttons[10][14].setLabel("!");
 }
 public void displayWinningMessage() {
-
+    gameOver = true;
     buttons[10][6].setLabel("Y");
     buttons[10][7].setLabel("O");
     buttons[10][8].setLabel("U");
